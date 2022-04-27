@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        console.log("DOM loaded into JQ");
+        photos = new Array();
+        for(var i=2; i<10; i++) {
+            photos[i] = new Image();
+            photos[i].src = "IMG_100"+i+".JPG";
+            $("#rbForm").append($("<input>").prop("type","radio").prop("value", "photos[i].src").prop("name","photoPicker").prop("class",".photoPicker")); 
+        }
+       
+   var i = 1002
+	$("#imgDiv").append($("<img>").attr("src",photos[i].src));
+	$(".photoPicker").click( function(){
+		$("#imgDiv img").attr("src",$(this).val());
+		console.log($(this).val());
+	});
+	$("#rbForm input:first").prop("checked", true);
+});
+</script>
+    
+<body>
+    <h2>Radio Button Slide Show conting from 1002 to 1009</h2>
+    <div id="imgDiv"></div>
+    <form action="#" id="rbForm">Click a button to select an image
+    </form>
+    <p>
+        When using this as a template, copy and paste from View Source.
+    <br>
+    DO NOT use Save As which often does not give you the correct/original source code.
+    <br>
+    <strong>Use F12 &gt;&gt;&gt; Console to see the diagnostic information about the for loop that you need to write.</strong>
+    <br>
+    The for loop does the image preloading and includes the jQuery to insert radio buttons into the web page.
+    </p>
+    
+</body>
+</head>
+</html>
+
+
